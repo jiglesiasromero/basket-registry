@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: pepe1-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    volumes:
+      - ./:/var/www/app/
+    ports:
+      - 8001:80
+    networks:
+      - symfony
+
+  php:
+    container_name: pepe1-php
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    environment:
+      APP_ENV: dev
+      DATABASE_URL: mysql://root:root@mysql:3306/basket-registry?serverVersion=5.7
+    volumes:
+      - ./:/var/www/app/
+    networks:
+      - symfony
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: pepe1-mysql
+    image: mysql:8.0
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: basket-registry
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    ports:
+      - 3360:3306
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      - symfony
+
+networks:
+  symfony:
