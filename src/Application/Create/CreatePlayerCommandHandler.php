@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Application\Create;
 
 use App\Domain\Entity\Exception\IdAlreadyInUseException;
@@ -8,8 +10,9 @@ use App\Domain\Entity\Player;
 use App\Domain\Entity\Specification\UniqueIdSpecificationInterface;
 use App\Domain\Entity\Specification\ValidAvegareRateSpecificationInterface;
 use App\Domain\PlayerRepository;
+use App\Infrastructure\Share\Bus\Command\CommandHandlerInterface;
 
-class CreatePlayerCommandHandler
+class CreatePlayerCommandHandler implements CommandHandlerInterface
 {
     /**
      * @var PlayerRepository

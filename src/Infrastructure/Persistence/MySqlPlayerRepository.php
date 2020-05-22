@@ -1,13 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Infrastructure\Persistence;
 
 use App\Domain\Entity\Player;
 use App\Domain\PlayerRepository;
-
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 
 class MySqlPlayerRepository implements PlayerRepository
 {
@@ -46,29 +45,12 @@ class MySqlPlayerRepository implements PlayerRepository
     public function findAllByCriteria(?string $criteria, ?string $orderBy): ?array
     {
         $sql = 'SELECT p FROM App\Domain\Entity\Player p';
+
         if($criteria && $orderBy){
             $sql = $sql . ' ORDER BY p.'.$criteria.' '.$orderBy;
         }
 
         return $this->entityManager->createQuery($sql)->getArrayResult();
 
-        //return $this->entityManager->getRepository(Player::class)->findAll();
-
-        //$qb = $this->entityManager->createQueryBuilder();
-
-//        $qb->from('basket-registry:player', 'p');
-//
-//        if(null !== $criteria){
-//            $qb->orderBy($criteria, $orderBy);
-//        }
-
-//        $qb->add('select', 'p')
-//            ->add('from', 'player p');
-//
-//        if(null !== $criteria){
-//            $qb->add('orderBy', 'p'.$criteria.' '.$orderBy);
-//        }
-//
-//        return $qb->getQuery()->getArrayResult();
     }
 }

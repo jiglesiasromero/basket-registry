@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Domain\Entity\Specification;
 
 use App\Domain\Entity\Exception\NotValidAverageRateException;

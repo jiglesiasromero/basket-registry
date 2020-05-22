@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Command;
-
 
 use App\Application\Delete\DeletePlayerCommandHandler;
 use Symfony\Component\Console\Command\Command;

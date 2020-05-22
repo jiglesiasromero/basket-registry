@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Application\Delete;
 
 use App\Domain\PlayerRepository;
+use App\Infrastructure\Share\Bus\Command\CommandHandlerInterface;
 
-class DeletePlayerCommandHandler
+class DeletePlayerCommandHandler  implements CommandHandlerInterface
 {
     private PlayerRepository $playerRepository;
 

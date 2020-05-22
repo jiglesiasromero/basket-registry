@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Application\Delete;
 
-use App\Infrastructure\Share\Bus\Command\Command;
+use App\Infrastructure\Share\Bus\Command\CommandInterface;
 
-class DeletePlayerCommand implements Command
+class DeletePlayerCommand  implements CommandInterface
 {
     /**
      * @var int

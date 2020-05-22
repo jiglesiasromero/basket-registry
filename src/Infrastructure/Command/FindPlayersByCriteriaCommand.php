@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Command;
 
-
-use App\Application\Create\CreatePlayerCommandHandler;
 use App\Application\Query\ViewPlayersQuery;
 use App\Application\Query\ViewPlayersQueryHandler;
 use Symfony\Component\Console\Command\Command;
