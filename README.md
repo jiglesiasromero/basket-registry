@@ -54,7 +54,7 @@ Or running the command though the container.
 
 > ./docker/app.sh remove-player id
 
-** Find players**
+**Find players**
 
 Retrieve the player list
 
