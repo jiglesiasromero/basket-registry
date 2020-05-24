@@ -6,6 +6,7 @@ namespace App\Domain\Entity;
 
 use App\Domain\Entity\Specification\UniqueIdSpecificationInterface;
 use App\Domain\Entity\Specification\ValidAvegareRateSpecificationInterface;
+use Assert\Assertion;
 
 class Player
 {
@@ -53,6 +54,8 @@ class Player
         int $rate
     ): self
     {
+        RoleType::isValidRole($role);
+
         $uniqueIdSpecification->isUnique($id);
 
         $validAvegareRateSpecification->isValid($rate);

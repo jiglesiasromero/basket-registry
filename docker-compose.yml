@@ -40,8 +40,6 @@ services:
       MYSQL_PASSWORD: devpass
     ports:
       - 3360:3306
-    volumes:
-      - ./docker/mysql:/var/lib/mysql
     networks:
       - symfony
 

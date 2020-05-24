@@ -4,7 +4,7 @@ In order to run the app, you need to have installed docker and docker-compose.
 
 ## Installation
 
-It includes a bash script to facilitate the use of the app for linux users. you can find in docker folder as app.sh
+It includes a bash script to facilitate the use of the app for linux users. You can find it within docker folder as app.sh
 
 First of all, we need to generate docker images and create containers.
 
