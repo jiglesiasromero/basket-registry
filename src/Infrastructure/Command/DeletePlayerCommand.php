@@ -44,7 +44,7 @@ class DeletePlayerCommand extends Command
 
         $this->commandHandler->execute(
             new \App\Application\Delete\DeletePlayerCommand(
-                $input->getArgument('id')
+                (int)$input->getArgument('id')
             )
         );
 

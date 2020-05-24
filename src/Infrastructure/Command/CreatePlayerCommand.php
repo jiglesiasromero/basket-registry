@@ -47,10 +47,10 @@ class CreatePlayerCommand extends Command
 
         $this->commandHandler->execute(
             new \App\Application\Create\CreatePlayerCommand(
-                $input->getArgument('id'),
+                (int)$input->getArgument('id'),
                 $input->getArgument('name'),
                 $input->getArgument('role'),
-                $input->getArgument('rate'),
+                (int)$input->getArgument('rate')
             )
         );
 
