@@ -9,11 +9,13 @@ It includes a bash script to facilitate the use of the app for linux users. you 
 First of all, we need to generate docker images and create containers.
 
 > ./docker/app.sh build
+>
 > ./docker/app.sh start
 
 You can do the same executing these commands:
 
 > docker-compose build
+>
 > docker-compose up
 
 Install composer bundles.
